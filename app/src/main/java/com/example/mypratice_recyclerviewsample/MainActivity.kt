@@ -10,19 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mypratice_recyclerviewsample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private val binding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
-    }
-
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val fruitList = FruitDataSource.fruitList
-        val recyclerView = binding.rvFruitList
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-//        recyclerView.adapter = FruitRecyclerViewAdapter_1(fruitList)
-        recyclerView.adapter = FruitRecyclerViewAdapter_2(fruitList)
+        binding.rvFruitList.layoutManager = LinearLayoutManager(this)
+        binding.rvFruitList.adapter = FruitRecyclerViewAdapter_1(fruitList)
+//        binding.rvFruitList.adapter = FruitRecyclerViewAdapter_2(fruitList)
 
         setContentView(binding.root)
     }
